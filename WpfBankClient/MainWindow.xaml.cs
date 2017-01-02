@@ -33,12 +33,33 @@ namespace WpfBankClient
 
         private void MenuItemDeposit_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigateTo(new DepositPage());
+            NavigateTo(new DepositWithdrawPage(OperationType.Deposit));
         }
+
 
         private void NavigateTo(Page page)
         {
             MainFrame.NavigationService.Navigate(page);
+        }
+
+        private void MenuItemWithdraw_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigateTo(new DepositWithdrawPage(OperationType.Withdraw));
+        }
+
+        private void MenuItemLogOut_OnClick(object sender, RoutedEventArgs e)
+        {
+            //TODO - LOG OUT
+        }
+
+        private void MenuItemHistory_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigateTo(new EmptyPage());//TODO
+        }
+
+        private void MenuItemTransfer_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigateTo(new EmptyPage());
         }
     }
 }

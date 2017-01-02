@@ -15,10 +15,10 @@
             </Menu.ItemsPanel>
             <MenuItem Header="_Log in" Click="MenuItemLogIn_OnClick"/>
             <MenuItem Header="_Deposit" Click="MenuItemDeposit_OnClick"/>
-            <MenuItem Header="_Withdraw"/>
-            <MenuItem Header="_Transfer"/>
-            <MenuItem Header="_Operation History"/>
-            <MenuItem Header="_Log out"/>
+            <MenuItem Header="_Withdraw" Click="MenuItemWithdraw_OnClick"/>
+            <MenuItem Header="_Transfer" Click="MenuItemTransfer_OnClick"/>
+            <MenuItem Header="_Operation History" Click="MenuItemHistory_OnClick"/>
+            <MenuItem Header="_Log out" Click="MenuItemLogOut_OnClick"/>
         </Menu>
         <Frame Name="MainFrame" NavigationUIVisibility="Hidden"/>
 

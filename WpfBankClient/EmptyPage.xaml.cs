@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WpfBankClient
 {
     /// <summary>
-    /// Interaction logic for DepositPage.xaml
+    /// Interaction logic for EmptyPage.xaml
     /// </summary>
-    public partial class DepositPage : Page
+    public partial class EmptyPage : Page
     {
-        public DepositPage()
+        public EmptyPage()
         {
             InitializeComponent();
         }

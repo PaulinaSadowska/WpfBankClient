@@ -1,4 +1,4 @@
-﻿<Page x:Class="WpfBankClient.DepositPage"
+﻿<Page x:Class="WpfBankClient.DepositWithdrawPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,11 +6,11 @@
       xmlns:local="clr-namespace:WpfBankClient"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="DepositPage">
+      Title="DepositWithdrawPage">
 
     <Grid>
         <Grid>
-            <Button x:Name="DepositButton" Content="Deposit" HorizontalAlignment="Left" Margin="201,233,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button x:Name="PerformButton" Content="Deposit" HorizontalAlignment="Left" Margin="201,233,0,0" VerticalAlignment="Top" Width="75"/>
             <Label x:Name="AccountLabel" Content="Account number:" HorizontalAlignment="Left" Margin="33,90,0,0" VerticalAlignment="Top"/>
             <Label x:Name="AmountLabel" Content="Amount" HorizontalAlignment="Left" Margin="33,137,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="AccountTextBox"  Height="23" Margin="137,90,43,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
