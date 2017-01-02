@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfBankClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="Bank Client" Height="500" Width="600" ResizeMode="NoResize">
+    <DockPanel>
+        <Menu DockPanel.Dock="Left" HorizontalAlignment="Left" Background="Gray" BorderBrush="Black">
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Header="_Log in" Click="MenuItemLogIn_OnClick"/>
+            <MenuItem Header="_Deposit" Click="MenuItemDeposit_OnClick"/>
+            <MenuItem Header="_Withdraw"/>
+            <MenuItem Header="_Transfer"/>
+            <MenuItem Header="_Operation History"/>
+            <MenuItem Header="_Log out"/>
+        </Menu>
+        <Frame Name="MainFrame" NavigationUIVisibility="Hidden"/>
+
+    </DockPanel>
 </Window>

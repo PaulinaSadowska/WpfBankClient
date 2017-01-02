@@ -23,6 +23,22 @@ namespace WpfBankClient
         public MainWindow()
         {
             InitializeComponent();
+            NavigateTo(new LogInPage());
+        }
+
+        private void MenuItemLogIn_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigateTo(new LogInPage());
+        }
+
+        private void MenuItemDeposit_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigateTo(new DepositPage());
+        }
+
+        private void NavigateTo(Page page)
+        {
+            MainFrame.NavigationService.Navigate(page);
         }
     }
 }
