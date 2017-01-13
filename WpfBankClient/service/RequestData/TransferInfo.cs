@@ -4,5 +4,4 @@
     {
         public string ReceiverAccountNumber { get; set; }
     }
-    }
 }

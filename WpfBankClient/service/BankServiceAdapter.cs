@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ServiceModel;
 using WpfBankClient.BankingService;
+using WpfBankClient.service.RequestData;
 using WpfBankClient.service.Responses;
 
 namespace WpfBankClient.service
@@ -29,6 +30,26 @@ namespace WpfBankClient.service
                 client.Close();
                 return new ResponseInfo(false, exception.Message);
             }
+        }
+
+        public ResponseInfo Deposit(PaymentInfo paymentInfo)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ResponseInfo Withdraw(PaymentInfo paymentInfo)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ResponseInfo Transfer(TransferInfo transferInfo)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ResponseInfo OperationHistory(string accountNumber)
+        {
+            throw new NotImplementedException();
         }
     }
 }
