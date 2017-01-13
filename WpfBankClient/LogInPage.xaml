@@ -9,7 +9,7 @@
       Title="LogInPage">
 
     <Grid>
-        <Button x:Name="LogInButton" Content="Log In" HorizontalAlignment="Left" Margin="201,233,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="LogInButton" Content="Log In" HorizontalAlignment="Left" Margin="201,233,0,0" VerticalAlignment="Top" Width="75" Click="LogInButton_OnClick"/>
         <Label x:Name="LoginLabel" Content="Login:" HorizontalAlignment="Left" Margin="33,90,0,0" VerticalAlignment="Top"/>
         <Label x:Name="PasswordLabel" Content="Password" HorizontalAlignment="Left" Margin="33,137,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="LoginTextBox"  Height="23" Margin="137,90,43,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

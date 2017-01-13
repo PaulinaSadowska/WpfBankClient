@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="service\IServiceAdapter.cs" />
+    <Compile Include="service\Responses\LoginInfo.cs" />
+    <Compile Include="service\MockServiceAdapter.cs" />
     <Page Include="DepositWithdrawPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

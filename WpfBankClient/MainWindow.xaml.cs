@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using WpfBankClient.service;
 
 namespace WpfBankClient
 {
@@ -20,15 +9,18 @@ namespace WpfBankClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        private IServiceAdapter bankingService;
+
         public MainWindow()
         {
             InitializeComponent();
-            NavigateTo(new LogInPage());
+            bankingService = new MockServiceAdapter();
+            NavigateTo(new LogInPage(bankingService));
         }
 
         private void MenuItemLogIn_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigateTo(new LogInPage());
+            NavigateTo(new LogInPage(bankingService));
         }
 
         private void MenuItemDeposit_OnClick(object sender, RoutedEventArgs e)
