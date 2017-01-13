@@ -26,9 +26,6 @@ namespace WpfBankClient.BankingService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AccessTokenField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ResponseStatusField;
-        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -48,19 +45,6 @@ namespace WpfBankClient.BankingService {
                 if ((object.ReferenceEquals(this.AccessTokenField, value) != true)) {
                     this.AccessTokenField = value;
                     this.RaisePropertyChanged("AccessToken");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string ResponseStatus {
-            get {
-                return this.ResponseStatusField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ResponseStatusField, value) != true)) {
-                    this.ResponseStatusField = value;
-                    this.RaisePropertyChanged("ResponseStatus");
                 }
             }
         }
@@ -89,7 +73,7 @@ namespace WpfBankClient.BankingService {
         private string AccountNumberField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal AmountField;
+        private string AmountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string OperationTitleField;
@@ -118,12 +102,12 @@ namespace WpfBankClient.BankingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Amount {
+        public string Amount {
             get {
                 return this.AmountField;
             }
             set {
-                if ((this.AmountField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.AmountField, value) != true)) {
                     this.AmountField = value;
                     this.RaisePropertyChanged("Amount");
                 }
@@ -164,7 +148,7 @@ namespace WpfBankClient.BankingService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ResponseStatusField;
+        private WpfBankClient.BankingService.ResponseStatus ResponseStatusField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -176,13 +160,13 @@ namespace WpfBankClient.BankingService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string ResponseStatus {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WpfBankClient.BankingService.ResponseStatus ResponseStatus {
             get {
                 return this.ResponseStatusField;
             }
             set {
-                if ((object.ReferenceEquals(this.ResponseStatusField, value) != true)) {
+                if ((this.ResponseStatusField.Equals(value) != true)) {
                     this.ResponseStatusField = value;
                     this.RaisePropertyChanged("ResponseStatus");
                 }
@@ -197,6 +181,39 @@ namespace WpfBankClient.BankingService {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResponseStatus", Namespace="http://schemas.datacontract.org/2004/07/WcfBankingService.Service.DataContract.Re" +
+        "sponse")]
+    public enum ResponseStatus : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Success = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        IncorrectLoginOrPassword = -1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InsufficientFunds = -11,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountNumberDoesntExist = -21,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        WrongAccountNumber = -22,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OtherBankAccount = -23,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccessDenied = -41,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InterbankTransferFailed = -61,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BankNotExists = -62,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -216,7 +233,7 @@ namespace WpfBankClient.BankingService {
         private string AccountNumberField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal AmountField;
+        private string AmountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string OperationTitleField;
@@ -258,12 +275,12 @@ namespace WpfBankClient.BankingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Amount {
+        public string Amount {
             get {
                 return this.AmountField;
             }
             set {
-                if ((this.AmountField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.AmountField, value) != true)) {
                     this.AmountField = value;
                     this.RaisePropertyChanged("Amount");
                 }
@@ -400,9 +417,6 @@ namespace WpfBankClient.BankingService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private WpfBankClient.BankingService.OperationRecord[] OperationRecordsField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ResponseStatusField;
-        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -422,19 +436,6 @@ namespace WpfBankClient.BankingService {
                 if ((object.ReferenceEquals(this.OperationRecordsField, value) != true)) {
                     this.OperationRecordsField = value;
                     this.RaisePropertyChanged("OperationRecords");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string ResponseStatus {
-            get {
-                return this.ResponseStatusField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ResponseStatusField, value) != true)) {
-                    this.ResponseStatusField = value;
-                    this.RaisePropertyChanged("ResponseStatus");
                 }
             }
         }

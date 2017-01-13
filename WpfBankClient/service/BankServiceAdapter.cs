@@ -34,12 +34,45 @@ namespace WpfBankClient.service
 
         public ResponseInfo Deposit(PaymentInfo paymentInfo)
         {
-            throw new NotImplementedException();
+            var client = new BankingServiceClient();
+            try
+            {
+                client.Deposit(new DepositData
+                {
+                    OperationTitle = paymentInfo.OperationTitle,
+                    AccountNumber = paymentInfo.SenderAccountNumber,
+                    Amount = paymentInfo.Amount
+                });
+                client.Close();
+                return new ResponseInfo(true, "Deposit performed successfully!");
+            }
+            catch (FaultException exception)
+            {
+                client.Close();
+                return new ResponseInfo(false, exception.Message);
+            }
         }
 
         public ResponseInfo Withdraw(PaymentInfo paymentInfo)
         {
-            throw new NotImplementedException();
+            var client = new BankingServiceClient();
+            try
+            {
+                client.Withdraw(new WithdrawData
+                {
+                    OperationTitle = paymentInfo.OperationTitle,
+                    AccountNumber = paymentInfo.SenderAccountNumber,
+                    Amount = paymentInfo.Amount,
+                    AccessToken = accessToken
+                });
+                client.Close();
+                return new ResponseInfo(true, "Withdraw performed successfully!");
+            }
+            catch (FaultException exception)
+            {
+                client.Close();
+                return new ResponseInfo(false, exception.Message);
+            }
         }
 
         public ResponseInfo Transfer(TransferInfo transferInfo)

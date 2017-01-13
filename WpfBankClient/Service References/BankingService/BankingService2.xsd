@@ -3,7 +3,7 @@
   <xs:complexType name="DepositData">
     <xs:sequence>
       <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OperationTitle" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -12,7 +12,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="AccessToken" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OperationTitle" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

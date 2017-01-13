@@ -67,7 +67,6 @@
     <Compile Include="service\RequestData\PaymentInfo.cs" />
     <Compile Include="service\RequestData\TransferInfo.cs" />
     <Compile Include="service\Responses\ResponseInfo.cs" />
-    <Compile Include="service\MockServiceAdapter.cs" />
     <Page Include="DepositWithdrawPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
