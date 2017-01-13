@@ -9,17 +9,22 @@ namespace WpfBankClient
     /// </summary>
     public partial class LogInPage : Page
     {
-        private IServiceAdapter _bankAdapter;
-        public LogInPage(IServiceAdapter bankAdapter)
+        private readonly MainWindow _mainWindow;
+        public LogInPage(MainWindow mainWindow)
+            :this(mainWindow, "")
+        {
+        }
+
+        public LogInPage(MainWindow mainWindow, string login)
         {
             InitializeComponent();
-            _bankAdapter = bankAdapter;
+            _mainWindow = mainWindow;
+            LoginTextBox.Text = login;
         }
 
         private void LogInButton_OnClick(object sender, RoutedEventArgs e)
         {
-            var response = _bankAdapter.LogIn(LoginTextBox.Text, PasswordBox.Password);
-            MessageBox.Show(response.Message);
+            _mainWindow.LogIn(LoginTextBox.Text, PasswordBox.Password);
         }
     }
 }

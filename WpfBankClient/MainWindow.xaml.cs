@@ -9,18 +9,18 @@ namespace WpfBankClient
     /// </summary>
     public partial class MainWindow : Window
     {
-        private IServiceAdapter bankingService;
+        private readonly IServiceAdapter _bankingService;
 
         public MainWindow()
         {
             InitializeComponent();
-            bankingService = new BankServiceAdapter();
-            NavigateTo(new LogInPage(bankingService));
+            _bankingService = new BankServiceAdapter();
+            NavigateTo(new LogInPage(this));
         }
 
         private void MenuItemLogIn_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigateTo(new LogInPage(bankingService));
+            NavigateTo(new LogInPage(this));
         }
 
         private void MenuItemDeposit_OnClick(object sender, RoutedEventArgs e)
@@ -52,6 +52,22 @@ namespace WpfBankClient
         private void MenuItemTransfer_OnClick(object sender, RoutedEventArgs e)
         {
             NavigateTo(new EmptyPage());
+        }
+
+        public void LogIn(string login, string password)
+        {
+            var response = _bankingService.LogIn(login, password);
+            MessageBox.Show(response.Message);
+            if (response.Succeeded)
+            {
+                //hide login button
+                //show log out button
+                NavigateTo(new EmptyPage()); //navigate somewhere
+            }
+            else
+            {
+                NavigateTo(new LogInPage(this, login));
+            }
         }
     }
 }

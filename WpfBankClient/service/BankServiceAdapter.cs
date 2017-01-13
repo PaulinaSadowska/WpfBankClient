@@ -8,7 +8,7 @@ namespace WpfBankClient.service
 {
     public class BankServiceAdapter : IServiceAdapter
     {
-        private string accessToken;
+        private string _accessToken;
 
         public BankServiceAdapter()
         {
@@ -22,8 +22,8 @@ namespace WpfBankClient.service
             {
                 var response = client.SignIn(login, password);
                 client.Close();
-                accessToken = response.AccessToken;
-                return new ResponseInfo(true, "Logged in successfully!");
+                _accessToken = response.AccessToken;
+                return new ResponseInfo(true, $"Logged in successfully! {response.AccessToken}");
             }
             catch (FaultException exception)
             {
@@ -63,7 +63,7 @@ namespace WpfBankClient.service
                     OperationTitle = paymentInfo.OperationTitle,
                     AccountNumber = paymentInfo.SenderAccountNumber,
                     Amount = paymentInfo.Amount,
-                    AccessToken = accessToken
+                    AccessToken = _accessToken
                 });
                 client.Close();
                 return new ResponseInfo(true, "Withdraw performed successfully!");
