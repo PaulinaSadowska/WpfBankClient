@@ -14,7 +14,7 @@ namespace WpfBankClient
         public MainWindow()
         {
             InitializeComponent();
-            bankingService = new MockServiceAdapter();
+            bankingService = new BankServiceAdapter();
             NavigateTo(new LogInPage(bankingService));
         }
 

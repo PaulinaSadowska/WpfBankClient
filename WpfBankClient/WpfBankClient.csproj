@@ -37,6 +37,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,8 +57,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Service References\BankingService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="service\BankServiceAdapter.cs" />
     <Compile Include="service\IServiceAdapter.cs" />
-    <Compile Include="service\Responses\LoginInfo.cs" />
+    <Compile Include="service\RequestData\PaymentInfo.cs" />
+    <Compile Include="service\RequestData\TransferInfo.cs" />
+    <Compile Include="service\Responses\ResponseInfo.cs" />
     <Compile Include="service\MockServiceAdapter.cs" />
     <Page Include="DepositWithdrawPage.xaml">
       <SubType>Designer</SubType>
@@ -116,9 +126,55 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\BankingService\BankingService.wsdl" />
+    <None Include="Service References\BankingService\BankingService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BankingService\BankingService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BankingService\BankingService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BankingService\BankingService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BankingService\BankingService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BankingService\WpfBankClient.BankingService.LogInResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BankingService\WpfBankClient.BankingService.OperationHistoryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BankingService\WpfBankClient.BankingService.PaymentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BankingService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BankingService\BankingService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BankingService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BankingService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BankingService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

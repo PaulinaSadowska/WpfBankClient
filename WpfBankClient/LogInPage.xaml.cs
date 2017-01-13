@@ -18,7 +18,8 @@ namespace WpfBankClient
 
         private void LogInButton_OnClick(object sender, RoutedEventArgs e)
         {
-            _bankAdapter.LogIn(LoginTextBox.Text, PasswordBox.Password);
+            var response = _bankAdapter.LogIn(LoginTextBox.Text, PasswordBox.Password);
+            MessageBox.Show(response.Message);
         }
     }
 }

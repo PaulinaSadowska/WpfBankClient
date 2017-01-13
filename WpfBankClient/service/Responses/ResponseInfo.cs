@@ -1,11 +1,11 @@
 ﻿namespace WpfBankClient.service.Responses
 {
-    public class LoginInfo
+    public class ResponseInfo
     {
         public bool Succeeded { get; set;  }
         public string Message { get; set;  }
 
-        public LoginInfo(bool succedded, string message)
+        public ResponseInfo(bool succedded, string message)
         {
             Succeeded = succedded;
             Message = message;

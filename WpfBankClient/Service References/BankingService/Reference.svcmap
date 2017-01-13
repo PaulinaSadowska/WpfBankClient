@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fe7af86c-fd98-489e-8c79-a84ed713b158" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/Bank/Service/Soap/BankingService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BankingService.disco" MetadataType="Disco" ID="db93247e-f483-46b1-8668-c48452142216" SourceId="1" SourceUrl="http://localhost/Bank/Service/Soap/BankingService.svc?disco" />
+    <MetadataFile FileName="BankingService.xsd" MetadataType="Schema" ID="6240c24c-e7f9-44f9-9de2-f672a48461f2" SourceId="1" SourceUrl="http://localhost/Bank/Service/Soap/BankingService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BankingService1.xsd" MetadataType="Schema" ID="86669a4b-dea4-4199-8514-f813f7fe389d" SourceId="1" SourceUrl="http://localhost/Bank/Service/Soap/BankingService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BankingService2.xsd" MetadataType="Schema" ID="502cb6e4-3fe8-4a22-9316-244b8fa928b1" SourceId="1" SourceUrl="http://localhost/Bank/Service/Soap/BankingService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BankingService3.xsd" MetadataType="Schema" ID="e0f82a3e-83bc-48f2-ba54-1348df5e5fa0" SourceId="1" SourceUrl="http://localhost/Bank/Service/Soap/BankingService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BankingService.wsdl" MetadataType="Wsdl" ID="9ccca3e0-134c-4368-8f58-befe4dba83ec" SourceId="1" SourceUrl="http://localhost/Bank/Service/Soap/BankingService.svc?wsdl" />
+    <MetadataFile FileName="BankingService4.xsd" MetadataType="Schema" ID="76df59ad-aa54-4757-a4fd-67d80c98e0a2" SourceId="1" SourceUrl="http://localhost/Bank/Service/Soap/BankingService.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
