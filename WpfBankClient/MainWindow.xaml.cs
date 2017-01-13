@@ -41,12 +41,15 @@ namespace WpfBankClient
 
         private void MenuItemLogOut_OnClick(object sender, RoutedEventArgs e)
         {
-            //TODO - LOG OUT
+            _bankingService.LogOut();
+            //show log in menu item
+            //hide log out menu item
+            NavigateTo(new LogInPage(this)); 
         }
 
         private void MenuItemHistory_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigateTo(new EmptyPage());//TODO
+            NavigateTo(new EmptyPage());
         }
 
         private void MenuItemTransfer_OnClick(object sender, RoutedEventArgs e)
@@ -66,7 +69,7 @@ namespace WpfBankClient
             }
             else
             {
-                NavigateTo(new LogInPage(this, login));
+                NavigateTo(new LogInPage(this));
             }
         }
     }

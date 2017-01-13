@@ -23,7 +23,7 @@ namespace WpfBankClient.service
                 var response = client.SignIn(login, password);
                 client.Close();
                 _accessToken = response.AccessToken;
-                return new ResponseInfo(true, $"Logged in successfully! {response.AccessToken}");
+                return new ResponseInfo(true, "Logged in successfully!");
             }
             catch (FaultException exception)
             {
@@ -83,6 +83,11 @@ namespace WpfBankClient.service
         public ResponseInfo OperationHistory(string accountNumber)
         {
             throw new NotImplementedException();
+        }
+
+        public void LogOut()
+        {
+            _accessToken = null;
         }
     }
 }

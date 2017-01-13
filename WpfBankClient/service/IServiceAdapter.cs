@@ -10,5 +10,6 @@ namespace WpfBankClient.service
         ResponseInfo Withdraw(PaymentInfo paymentInfo);
         ResponseInfo Transfer(TransferInfo transferInfo);
         ResponseInfo OperationHistory(string accountNumber);
+        void LogOut();
     }
 }
