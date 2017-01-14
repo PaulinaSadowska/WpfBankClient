@@ -8,11 +8,13 @@ namespace WpfBankClient.Pages
 {
     public partial class HistoryPage : Page
     {
-        private IHistoryListener _historyListener;
-        public HistoryPage(IHistoryListener historyListener, List<HistoryRecord> historyRecords)
+        private readonly IHistoryListener _historyListener;
+        public HistoryPage(IHistoryListener historyListener, IEnumerable<HistoryRecord> historyRecords)
         {
             InitializeComponent();
             _historyListener = historyListener;
+            HistoryDataGrid.ItemsSource = historyRecords;
+
         }
 
         private void GetHistoryButton_Click(object sender, RoutedEventArgs e)
