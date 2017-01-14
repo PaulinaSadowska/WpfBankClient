@@ -11,7 +11,7 @@ namespace WpfBankClient
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : System.Windows.Window, ILogInListener, IPaymentListener, ITransferListener
+    public partial class MainWindow : System.Windows.Window, ILogInListener, IPaymentListener, ITransferListener, IHistoryListener
     {
         private readonly IServiceAdapter _bankingService;
 
@@ -53,7 +53,7 @@ namespace WpfBankClient
 
         private void MenuItemHistory_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigateTo(new EmptyPage());
+            NavigateTo(new EmptyHistoryPage(this));
         }
 
         private void MenuItemTransfer_OnClick(object sender, RoutedEventArgs e)
@@ -93,6 +93,16 @@ namespace WpfBankClient
         {
             var response = _bankingService.Transfer(transferInfo);
             MessageBox.Show(response.Message);
+        }
+
+        public void GetOperationHistory(string accountNumber)
+        {
+            var response = _bankingService.OperationHistory(accountNumber);
+            MessageBox.Show(response.Message);
+            if (response.Succeeded)
+            {
+                NavigateTo(new EmptyPage());
+            }
         }
     }
 }
