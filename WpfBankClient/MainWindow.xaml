@@ -6,21 +6,20 @@
         xmlns:local="clr-namespace:WpfBankClient"
         mc:Ignorable="d"
         Title="Bank Client" Height="500" Width="600" ResizeMode="NoResize">
+
+    
     <DockPanel>
+        <DockPanel.Resources>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        </DockPanel.Resources>
         <Menu DockPanel.Dock="Left" HorizontalAlignment="Left" Background="Gray" BorderBrush="Black">
             <Menu.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <VirtualizingStackPanel Orientation="Vertical"/>
+                    <VirtualizingStackPanel Orientation="Vertical" />
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
-            <MenuItem Header="_Log in" Click="MenuItemLogIn_OnClick"/>
-            <MenuItem Header="_Deposit" Click="MenuItemDeposit_OnClick"/>
-            <MenuItem Header="_Withdraw" Click="MenuItemWithdraw_OnClick"/>
-            <MenuItem Header="_Transfer" Click="MenuItemTransfer_OnClick"/>
-            <MenuItem Header="_Operation History" Click="MenuItemHistory_OnClick"/>
-            <MenuItem Header="_Log out" Click="MenuItemLogOut_OnClick"/>
         </Menu>
-        <Frame Name="MainFrame" NavigationUIVisibility="Hidden"/>
+        <Frame Name="MainFrame" NavigationUIVisibility="Hidden" />
 
     </DockPanel>
 </Window>

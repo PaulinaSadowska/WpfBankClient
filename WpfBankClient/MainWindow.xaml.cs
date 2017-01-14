@@ -8,9 +8,6 @@ using WpfBankClient.service.RequestData;
 
 namespace WpfBankClient
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : System.Windows.Window, ILogInListener, IPaymentListener, ITransferListener, IHistoryListener
     {
         private readonly IServiceAdapter _bankingService;
@@ -20,6 +17,7 @@ namespace WpfBankClient
             InitializeComponent();
             _bankingService = new BankServiceAdapter();
             NavigateTo(new LogInPage(this));
+            HideLoggedInMenuItems();
         }
 
         private void MenuItemLogIn_OnClick(object sender, RoutedEventArgs e)
@@ -46,8 +44,7 @@ namespace WpfBankClient
         private void MenuItemLogOut_OnClick(object sender, RoutedEventArgs e)
         {
             _bankingService.LogOut();
-            //show log in menu item
-            //hide log out menu item
+            HideLoggedInMenuItems();
             NavigateTo(new LogInPage(this)); 
         }
 
@@ -67,8 +64,7 @@ namespace WpfBankClient
             MessageBox.Show(response.Message);
             if (response.Succeeded)
             {
-                //hide login button
-                //show log out and operations button
+                ShowLoggedInMenuItems();
                 NavigateTo(new PaymentPage(this, OperationType.Deposit));
             }
             else
@@ -103,6 +99,26 @@ namespace WpfBankClient
             {
                 NavigateTo(new HistoryPage(this, response.OperationHistory));
             }
+        }
+
+        private void ShowLoggedInMenuItems()
+        {
+            LogInMenuItem.Visibility = Visibility.Collapsed;
+            DepositMenuItem.Visibility = Visibility.Visible;
+            WithdrawMenuItem.Visibility = Visibility.Visible;
+            TransferMenuItem.Visibility = Visibility.Visible;
+            OperationHistoryMenuItem.Visibility = Visibility.Visible;
+            LogOutMenuItem.Visibility = Visibility.Visible;
+        }
+
+        private void HideLoggedInMenuItems()
+        {
+            LogInMenuItem.Visibility = Visibility.Visible;
+            DepositMenuItem.Visibility = Visibility.Collapsed;
+            WithdrawMenuItem.Visibility = Visibility.Collapsed;
+            TransferMenuItem.Visibility = Visibility.Collapsed;
+            OperationHistoryMenuItem.Visibility = Visibility.Collapsed;
+            LogOutMenuItem.Visibility = Visibility.Collapsed;
         }
     }
 }

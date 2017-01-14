@@ -14,7 +14,6 @@ namespace WpfBankClient.Pages
             InitializeComponent();
             _historyListener = historyListener;
             HistoryDataGrid.ItemsSource = historyRecords;
-
         }
 
         private void GetHistoryButton_Click(object sender, RoutedEventArgs e)
