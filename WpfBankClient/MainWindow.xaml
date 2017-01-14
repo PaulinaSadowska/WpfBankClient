@@ -3,29 +3,35 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfBankClient"
         mc:Ignorable="d"
-        Title="Bank Client" Height="500" Width="600" ResizeMode="NoResize">
+        Title="Bank Client" Height="500" Width="600" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
 
-    
+    <Window.Resources>
+        <Style TargetType="MenuItem">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Foreground" Value="white" />
+        </Style>
+    </Window.Resources>
+
+
     <DockPanel>
-        <DockPanel.Resources>
-            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-        </DockPanel.Resources>
-        <Menu DockPanel.Dock="Left" HorizontalAlignment="Left" Background="Gray" BorderBrush="Black">
+        <Menu DockPanel.Dock="Left" HorizontalAlignment="Left" Background="#009688" Width="140">
             <Menu.ItemsPanel>
                 <ItemsPanelTemplate>
                     <VirtualizingStackPanel Orientation="Vertical" />
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
-            <MenuItem Name ="LogInMenuItem" Header="_Log In" Click="MenuItemLogIn_OnClick"/>
-            <MenuItem Name ="DepositMenuItem" Header="_Deposit" Click="MenuItemDeposit_OnClick" />
-            <MenuItem Name ="WithdrawMenuItem" Header="_Withdraw" Click="MenuItemWithdraw_OnClick" />
-            <MenuItem Name ="TransferMenuItem" Header="_Transfer" Click="MenuItemTransfer_OnClick" />
-            <MenuItem Name ="OperationHistoryMenuItem" Header="_Operation History" Click="MenuItemHistory_OnClick" />
-            <MenuItem Name ="LogOutMenuItem" Header="_Log out" Click="MenuItemLogOut_OnClick" />
+            <MenuItem Name="LogInMenuItem" Header="_Log In" Click="MenuItemLogIn_OnClick" />
+            <MenuItem Name="DepositMenuItem" Header="_Deposit" Click="MenuItemDeposit_OnClick" />
+            <MenuItem Name="WithdrawMenuItem" Header="_Withdraw" Click="MenuItemWithdraw_OnClick" />
+            <MenuItem Name="TransferMenuItem" Header="_Transfer" Click="MenuItemTransfer_OnClick" />
+            <MenuItem Name="OperationHistoryMenuItem" Header="_Operation History" Click="MenuItemHistory_OnClick" />
+            <MenuItem Name="LogOutMenuItem" Header="_Log out" Click="MenuItemLogOut_OnClick" />
         </Menu>
-        <Frame Name="MainFrame" NavigationUIVisibility="Hidden" />
-
+        <Grid>
+            <Frame Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,45,0,0" />
+        </Grid>
     </DockPanel>
 </Window>
