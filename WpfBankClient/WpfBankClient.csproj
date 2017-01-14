@@ -66,11 +66,14 @@
     <Compile Include="service\Commands\DepositCommand.cs" />
     <Compile Include="service\Commands\ICommand.cs" />
     <Compile Include="service\Commands\LogInCommand.cs" />
+    <Compile Include="service\Commands\HistoryCommand.cs" />
     <Compile Include="service\Commands\TransferCommand.cs" />
     <Compile Include="service\Commands\WithdrawCommand.cs" />
     <Compile Include="service\IServiceAdapter.cs" />
     <Compile Include="service\RequestData\PaymentInfo.cs" />
     <Compile Include="service\RequestData\TransferInfo.cs" />
+    <Compile Include="service\Responses\HistoryRecord.cs" />
+    <Compile Include="service\Responses\HistoryResponseInfo.cs" />
     <Compile Include="service\Responses\ResponseInfo.cs" />
     <Page Include="DepositWithdrawPage.xaml">
       <SubType>Designer</SubType>

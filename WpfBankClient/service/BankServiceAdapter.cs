@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ServiceModel;
 using WpfBankClient.BankingService;
 using WpfBankClient.service.Commands;
@@ -37,9 +38,11 @@ namespace WpfBankClient.service
             return ExecuteCommand(transfer);
         }
 
-        public ResponseInfo OperationHistory(string accountNumber)
+        public HistoryResponseInfo OperationHistory(string accountNumber)
         {
-            throw new NotImplementedException();
+            var history = new HistoryCommand(accountNumber, _accessToken);
+            var response = ExecuteCommand(history);
+            return new HistoryResponseInfo(response, history.HistoryRecords);
         }
 
         private static ResponseInfo ExecuteCommand(ICommand command)
