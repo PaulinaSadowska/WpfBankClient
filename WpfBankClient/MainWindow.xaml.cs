@@ -101,7 +101,7 @@ namespace WpfBankClient
             MessageBox.Show(response.Message);
             if (response.Succeeded)
             {
-                NavigateTo(new EmptyPage());
+                NavigateTo(new HistoryPage(this, response.OperationHistory));
             }
         }
     }

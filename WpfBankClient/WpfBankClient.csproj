@@ -60,6 +60,9 @@
     <Compile Include="Pages\EmptyHistoryPage.xaml.cs">
       <DependentUpon>EmptyHistoryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\HistoryPage.xaml.cs">
+      <DependentUpon>HistoryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\TransferPage.xaml.cs">
       <DependentUpon>TransferPage.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,10 @@
     <Compile Include="Window\Listeners\IPaymentListener.cs" />
     <Compile Include="Window\Listeners\ITransferListener.cs" />
     <Page Include="Pages\EmptyHistoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\HistoryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

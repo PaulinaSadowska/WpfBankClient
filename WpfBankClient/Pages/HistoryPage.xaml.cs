@@ -1,14 +1,15 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
+using WpfBankClient.service.Responses;
 using WpfBankClient.Window.Listeners;
 
 namespace WpfBankClient.Pages
 {
-    public partial class EmptyHistoryPage : Page
+    public partial class HistoryPage : Page
     {
-        private readonly IHistoryListener _historyListener;
-
-        public EmptyHistoryPage(IHistoryListener historyListener)
+        private IHistoryListener _historyListener;
+        public HistoryPage(IHistoryListener historyListener, List<HistoryRecord> historyRecords)
         {
             InitializeComponent();
             _historyListener = historyListener;
