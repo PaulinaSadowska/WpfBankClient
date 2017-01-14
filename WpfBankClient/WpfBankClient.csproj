@@ -62,28 +62,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="service\BankServiceAdapter.cs" />
-    <Compile Include="service\Commands\DepositCommand.cs" />
-    <Compile Include="service\Commands\ICommand.cs" />
-    <Compile Include="service\Commands\LogInCommand.cs" />
-    <Compile Include="service\Commands\HistoryCommand.cs" />
-    <Compile Include="service\Commands\TransferCommand.cs" />
-    <Compile Include="service\Commands\WithdrawCommand.cs" />
-    <Compile Include="service\IServiceAdapter.cs" />
-    <Compile Include="service\RequestData\PaymentInfo.cs" />
-    <Compile Include="service\RequestData\TransferInfo.cs" />
-    <Compile Include="service\Responses\HistoryRecord.cs" />
-    <Compile Include="service\Responses\HistoryResponseInfo.cs" />
-    <Compile Include="service\Responses\ResponseInfo.cs" />
-    <Page Include="DepositWithdrawPage.xaml">
+    <Compile Include="Service\BankServiceAdapter.cs" />
+    <Compile Include="Service\Commands\DepositCommand.cs" />
+    <Compile Include="Service\Commands\ICommand.cs" />
+    <Compile Include="Service\Commands\LogInCommand.cs" />
+    <Compile Include="Service\Commands\HistoryCommand.cs" />
+    <Compile Include="Service\Commands\TransferCommand.cs" />
+    <Compile Include="Service\Commands\WithdrawCommand.cs" />
+    <Compile Include="Service\IServiceAdapter.cs" />
+    <Compile Include="Service\RequestData\PaymentInfo.cs" />
+    <Compile Include="Service\RequestData\TransferInfo.cs" />
+    <Compile Include="Service\Responses\HistoryRecord.cs" />
+    <Compile Include="Service\Responses\HistoryResponseInfo.cs" />
+    <Compile Include="Service\Responses\ResponseInfo.cs" />
+    <Page Include="Pages\DepositWithdrawPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EmptyPage.xaml">
+    <Page Include="Pages\EmptyPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LogInPage.xaml">
+    <Page Include="Pages\LogInPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -95,16 +95,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DepositWithdrawPage.xaml.cs">
+    <Compile Include="Pages\DepositWithdrawPage.xaml.cs">
       <DependentUpon>DepositWithdrawPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EmptyPage.xaml.cs">
+    <Compile Include="Pages\EmptyPage.xaml.cs">
       <DependentUpon>EmptyPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="OperationType.cs" />
-    <Compile Include="LogInPage.xaml.cs">
+    <Compile Include="Pages\LogInPage.xaml.cs">
       <DependentUpon>LogInPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Window\Listeners\LogInListener.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

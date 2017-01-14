@@ -1,13 +1,14 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using WpfBankClient.service;
+using WpfBankClient.Window.Listeners;
 
 namespace WpfBankClient
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : System.Windows.Window, ILogInListener
     {
         private readonly IServiceAdapter _bankingService;
 
@@ -15,17 +16,17 @@ namespace WpfBankClient
         {
             InitializeComponent();
             _bankingService = new BankServiceAdapter();
-            NavigateTo(new LogInPage(this));
+            NavigateTo(new Pages.LogInPage(this));
         }
 
         private void MenuItemLogIn_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigateTo(new LogInPage(this));
+            NavigateTo(new Pages.LogInPage(this));
         }
 
         private void MenuItemDeposit_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigateTo(new DepositWithdrawPage(OperationType.Deposit));
+            NavigateTo(new Pages.DepositWithdrawPage(OperationType.Deposit));
         }
 
 
@@ -36,7 +37,7 @@ namespace WpfBankClient
 
         private void MenuItemWithdraw_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigateTo(new DepositWithdrawPage(OperationType.Withdraw));
+            NavigateTo(new Pages.DepositWithdrawPage(OperationType.Withdraw));
         }
 
         private void MenuItemLogOut_OnClick(object sender, RoutedEventArgs e)
@@ -44,17 +45,17 @@ namespace WpfBankClient
             _bankingService.LogOut();
             //show log in menu item
             //hide log out menu item
-            NavigateTo(new LogInPage(this)); 
+            NavigateTo(new Pages.LogInPage(this)); 
         }
 
         private void MenuItemHistory_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigateTo(new EmptyPage());
+            NavigateTo(new Pages.EmptyPage());
         }
 
         private void MenuItemTransfer_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigateTo(new EmptyPage());
+            NavigateTo(new Pages.EmptyPage());
         }
 
         public void LogIn(string login, string password)
@@ -64,12 +65,12 @@ namespace WpfBankClient
             if (response.Succeeded)
             {
                 //hide login button
-                //show log out button
-                NavigateTo(new EmptyPage()); //navigate somewhere
+                //show log out and operations button
+                NavigateTo(new Pages.EmptyPage()); //navigate somewhere
             }
             else
             {
-                NavigateTo(new LogInPage(this));
+                NavigateTo(new Pages.LogInPage(this, login));
             }
         }
     }

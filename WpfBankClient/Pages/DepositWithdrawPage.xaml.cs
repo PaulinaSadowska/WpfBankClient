@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace WpfBankClient
+namespace WpfBankClient.Pages
 {
     /// <summary>
     /// Interaction logic for DepositWithdrawPage.xaml
