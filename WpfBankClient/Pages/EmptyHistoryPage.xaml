@@ -8,14 +8,15 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="EmptyHistoryPage">
 
-    <Grid>
-        <Grid>
-            <Button x:Name="GetHistoryButton" Content="Get History" HorizontalAlignment="Left" Margin="201,233,0,0"
-                    VerticalAlignment="Top" Width="75" Click="GetHistoryButton_Click" />
-            <Label x:Name="AccountLabel" Content="Account number:" HorizontalAlignment="Left" Margin="33,90,0,0"
-                   VerticalAlignment="Top" />
-            <TextBox x:Name="AccountTextBox" Height="23" Margin="137,90,43,0" TextWrapping="Wrap"
-                     VerticalAlignment="Top" Width="120" />
-        </Grid>
+    <Grid VerticalAlignment="Center" Margin="0, 0, 0, 60">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label  Grid.Row="0" x:Name="AccountLabel" Content="Account number:"  />
+        <TextBox  Grid.Row="1" x:Name="AccountTextBox" />
+        <Button  Grid.Row="2" x:Name="GetHistoryButton" Content="Get History"  Click="GetHistoryButton_Click" />
+
     </Grid>
 </Page>

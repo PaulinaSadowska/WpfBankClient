@@ -97,7 +97,7 @@ namespace WpfBankClient
             MessageBox.Show(response.Message);
             if (response.Succeeded)
             {
-                NavigateTo(new HistoryPage(this, response.OperationHistory));
+                NavigateTo(new HistoryPage(accountNumber, response.OperationHistory));
             }
         }
 
