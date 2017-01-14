@@ -312,25 +312,28 @@ namespace WpfBankClient.BankingService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TransferData", Namespace="http://schemas.datacontract.org/2004/07/WcfBankingService.Service.DataContract.Re" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="SoapTransferData", Namespace="http://schemas.datacontract.org/2004/07/WcfBankingService.Service.DataContract.Re" +
         "quest")]
     [System.SerializableAttribute()]
-    public partial class TransferData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class SoapTransferData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int amountField;
+        private string AccessTokenField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string receiver_accountField;
+        private string AmountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string sender_accountField;
+        private string ReceiverAccountNumberField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string titleField;
+        private string SenderAccountNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -343,53 +346,66 @@ namespace WpfBankClient.BankingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int amount {
+        public string AccessToken {
             get {
-                return this.amountField;
+                return this.AccessTokenField;
             }
             set {
-                if ((this.amountField.Equals(value) != true)) {
-                    this.amountField = value;
-                    this.RaisePropertyChanged("amount");
+                if ((object.ReferenceEquals(this.AccessTokenField, value) != true)) {
+                    this.AccessTokenField = value;
+                    this.RaisePropertyChanged("AccessToken");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string receiver_account {
+        public string Amount {
             get {
-                return this.receiver_accountField;
+                return this.AmountField;
             }
             set {
-                if ((object.ReferenceEquals(this.receiver_accountField, value) != true)) {
-                    this.receiver_accountField = value;
-                    this.RaisePropertyChanged("receiver_account");
+                if ((object.ReferenceEquals(this.AmountField, value) != true)) {
+                    this.AmountField = value;
+                    this.RaisePropertyChanged("Amount");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string sender_account {
+        public string ReceiverAccountNumber {
             get {
-                return this.sender_accountField;
+                return this.ReceiverAccountNumberField;
             }
             set {
-                if ((object.ReferenceEquals(this.sender_accountField, value) != true)) {
-                    this.sender_accountField = value;
-                    this.RaisePropertyChanged("sender_account");
+                if ((object.ReferenceEquals(this.ReceiverAccountNumberField, value) != true)) {
+                    this.ReceiverAccountNumberField = value;
+                    this.RaisePropertyChanged("ReceiverAccountNumber");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string title {
+        public string SenderAccountNumber {
             get {
-                return this.titleField;
+                return this.SenderAccountNumberField;
             }
             set {
-                if ((object.ReferenceEquals(this.titleField, value) != true)) {
-                    this.titleField = value;
-                    this.RaisePropertyChanged("title");
+                if ((object.ReferenceEquals(this.SenderAccountNumberField, value) != true)) {
+                    this.SenderAccountNumberField = value;
+                    this.RaisePropertyChanged("SenderAccountNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
                 }
             }
         }
@@ -582,10 +598,10 @@ namespace WpfBankClient.BankingService {
         System.Threading.Tasks.Task<WpfBankClient.BankingService.PaymentResponse> WithdrawAsync(WpfBankClient.BankingService.WithdrawData paymentData);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankingService/Transfer", ReplyAction="http://tempuri.org/IBankingService/TransferResponse")]
-        WpfBankClient.BankingService.PaymentResponse Transfer(WpfBankClient.BankingService.TransferData transferData, string accessToken);
+        WpfBankClient.BankingService.PaymentResponse Transfer(WpfBankClient.BankingService.SoapTransferData transferData);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankingService/Transfer", ReplyAction="http://tempuri.org/IBankingService/TransferResponse")]
-        System.Threading.Tasks.Task<WpfBankClient.BankingService.PaymentResponse> TransferAsync(WpfBankClient.BankingService.TransferData transferData, string accessToken);
+        System.Threading.Tasks.Task<WpfBankClient.BankingService.PaymentResponse> TransferAsync(WpfBankClient.BankingService.SoapTransferData transferData);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBankingService/GetOperationHistory", ReplyAction="http://tempuri.org/IBankingService/GetOperationHistoryResponse")]
         WpfBankClient.BankingService.OperationHistoryResponse GetOperationHistory(string accessToken, string accountNumber);
@@ -645,12 +661,12 @@ namespace WpfBankClient.BankingService {
             return base.Channel.WithdrawAsync(paymentData);
         }
         
-        public WpfBankClient.BankingService.PaymentResponse Transfer(WpfBankClient.BankingService.TransferData transferData, string accessToken) {
-            return base.Channel.Transfer(transferData, accessToken);
+        public WpfBankClient.BankingService.PaymentResponse Transfer(WpfBankClient.BankingService.SoapTransferData transferData) {
+            return base.Channel.Transfer(transferData);
         }
         
-        public System.Threading.Tasks.Task<WpfBankClient.BankingService.PaymentResponse> TransferAsync(WpfBankClient.BankingService.TransferData transferData, string accessToken) {
-            return base.Channel.TransferAsync(transferData, accessToken);
+        public System.Threading.Tasks.Task<WpfBankClient.BankingService.PaymentResponse> TransferAsync(WpfBankClient.BankingService.SoapTransferData transferData) {
+            return base.Channel.TransferAsync(transferData);
         }
         
         public WpfBankClient.BankingService.OperationHistoryResponse GetOperationHistory(string accessToken, string accountNumber) {

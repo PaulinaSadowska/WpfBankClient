@@ -17,13 +17,14 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="WithdrawData" nillable="true" type="tns:WithdrawData" />
-  <xs:complexType name="TransferData">
+  <xs:complexType name="SoapTransferData">
     <xs:sequence>
-      <xs:element minOccurs="0" name="amount" type="xs:int" />
-      <xs:element minOccurs="0" name="receiver_account" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="sender_account" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AccessToken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReceiverAccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SenderAccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="TransferData" nillable="true" type="tns:TransferData" />
+  <xs:element name="SoapTransferData" nillable="true" type="tns:SoapTransferData" />
 </xs:schema>

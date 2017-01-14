@@ -33,7 +33,8 @@ namespace WpfBankClient.service
 
         public ResponseInfo Transfer(TransferInfo transferInfo)
         {
-            throw new NotImplementedException();
+            var transfer = new WithdrawCommand(transferInfo, _accessToken);
+            return ExecuteCommand(transfer);
         }
 
         public ResponseInfo OperationHistory(string accountNumber)

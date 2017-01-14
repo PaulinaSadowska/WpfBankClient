@@ -48,8 +48,7 @@
   <xs:element name="Transfer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfBankingService.Service.DataContract.Request" minOccurs="0" name="transferData" nillable="true" type="q6:TransferData" />
-        <xs:element minOccurs="0" name="accessToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfBankingService.Service.DataContract.Request" minOccurs="0" name="transferData" nillable="true" type="q6:SoapTransferData" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
