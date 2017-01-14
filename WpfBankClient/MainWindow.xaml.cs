@@ -11,7 +11,7 @@ namespace WpfBankClient
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : System.Windows.Window, ILogInListener, IPaymentListener
+    public partial class MainWindow : System.Windows.Window, ILogInListener, IPaymentListener, ITransferListener
     {
         private readonly IServiceAdapter _bankingService;
 
@@ -58,7 +58,7 @@ namespace WpfBankClient
 
         private void MenuItemTransfer_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigateTo(new EmptyPage());
+            NavigateTo(new TransferPage(this));
         }
 
         public void LogIn(string login, string password)
@@ -69,7 +69,7 @@ namespace WpfBankClient
             {
                 //hide login button
                 //show log out and operations button
-                NavigateTo(new EmptyPage()); //navigate somewhere
+                NavigateTo(new PaymentPage(this, OperationType.Deposit));
             }
             else
             {
@@ -86,6 +86,12 @@ namespace WpfBankClient
         public void Withdraw(PaymentInfo paymentInfo)
         {
             var response = _bankingService.Withdraw(paymentInfo);
+            MessageBox.Show(response.Message);
+        }
+
+        public void Transfer(TransferInfo transferInfo)
+        {
+            var response = _bankingService.Transfer(transferInfo);
             MessageBox.Show(response.Message);
         }
     }

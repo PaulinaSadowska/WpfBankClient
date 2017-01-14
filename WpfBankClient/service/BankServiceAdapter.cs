@@ -34,7 +34,7 @@ namespace WpfBankClient.service
 
         public ResponseInfo Transfer(TransferInfo transferInfo)
         {
-            var transfer = new WithdrawCommand(transferInfo, _accessToken);
+            var transfer = new TransferCommand(transferInfo, _accessToken);
             return ExecuteCommand(transfer);
         }
 
