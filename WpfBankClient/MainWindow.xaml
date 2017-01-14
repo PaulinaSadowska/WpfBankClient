@@ -18,6 +18,12 @@
                     <VirtualizingStackPanel Orientation="Vertical" />
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
+            <MenuItem Name ="LogInMenuItem" Header="_Log In" Click="MenuItemLogIn_OnClick"/>
+            <MenuItem Name ="DepositMenuItem" Header="_Deposit" Click="MenuItemDeposit_OnClick" />
+            <MenuItem Name ="WithdrawMenuItem" Header="_Withdraw" Click="MenuItemWithdraw_OnClick" />
+            <MenuItem Name ="TransferMenuItem" Header="_Transfer" Click="MenuItemTransfer_OnClick" />
+            <MenuItem Name ="OperationHistoryMenuItem" Header="_Operation History" Click="MenuItemHistory_OnClick" />
+            <MenuItem Name ="LogOutMenuItem" Header="_Log out" Click="MenuItemLogOut_OnClick" />
         </Menu>
         <Frame Name="MainFrame" NavigationUIVisibility="Hidden" />
 
