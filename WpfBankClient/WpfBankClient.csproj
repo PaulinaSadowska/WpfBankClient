@@ -63,6 +63,10 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="service\BankServiceAdapter.cs" />
+    <Compile Include="service\Commands\DepositCommand.cs" />
+    <Compile Include="service\Commands\ICommand.cs" />
+    <Compile Include="service\Commands\LogInCommand.cs" />
+    <Compile Include="service\Commands\WithdrawCommand.cs" />
     <Compile Include="service\IServiceAdapter.cs" />
     <Compile Include="service\RequestData\PaymentInfo.cs" />
     <Compile Include="service\RequestData\TransferInfo.cs" />

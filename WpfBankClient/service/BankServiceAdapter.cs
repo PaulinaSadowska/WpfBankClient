@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ServiceModel;
 using WpfBankClient.BankingService;
+using WpfBankClient.service.Commands;
 using WpfBankClient.service.RequestData;
 using WpfBankClient.service.Responses;
 
@@ -10,69 +11,24 @@ namespace WpfBankClient.service
     {
         private string _accessToken;
 
-        public BankServiceAdapter()
-        {
-          
-        }
-
         public ResponseInfo LogIn(string login, string password)
         {
-            var client = new BankingServiceClient();
-            try
-            {
-                var response = client.SignIn(login, password);
-                client.Close();
-                _accessToken = response.AccessToken;
-                return new ResponseInfo(true, "Logged in successfully!");
-            }
-            catch (FaultException exception)
-            {
-                client.Close();
-                return new ResponseInfo(false, exception.Message);
-            }
+            var logIn = new LogInCommand(login, password);
+            var response = ExecuteCommand(logIn);
+            _accessToken = logIn.AccessToken;
+            return response;
         }
 
         public ResponseInfo Deposit(PaymentInfo paymentInfo)
         {
-            var client = new BankingServiceClient();
-            try
-            {
-                client.Deposit(new DepositData
-                {
-                    OperationTitle = paymentInfo.OperationTitle,
-                    AccountNumber = paymentInfo.SenderAccountNumber,
-                    Amount = paymentInfo.Amount
-                });
-                client.Close();
-                return new ResponseInfo(true, "Deposit performed successfully!");
-            }
-            catch (FaultException exception)
-            {
-                client.Close();
-                return new ResponseInfo(false, exception.Message);
-            }
+            var deposit = new DepositCommand(paymentInfo);
+            return ExecuteCommand(deposit);
         }
 
         public ResponseInfo Withdraw(PaymentInfo paymentInfo)
         {
-            var client = new BankingServiceClient();
-            try
-            {
-                client.Withdraw(new WithdrawData
-                {
-                    OperationTitle = paymentInfo.OperationTitle,
-                    AccountNumber = paymentInfo.SenderAccountNumber,
-                    Amount = paymentInfo.Amount,
-                    AccessToken = _accessToken
-                });
-                client.Close();
-                return new ResponseInfo(true, "Withdraw performed successfully!");
-            }
-            catch (FaultException exception)
-            {
-                client.Close();
-                return new ResponseInfo(false, exception.Message);
-            }
+            var withdraw = new WithdrawCommand(paymentInfo, _accessToken);
+            return ExecuteCommand(withdraw);
         }
 
         public ResponseInfo Transfer(TransferInfo transferInfo)
@@ -83,6 +39,22 @@ namespace WpfBankClient.service
         public ResponseInfo OperationHistory(string accountNumber)
         {
             throw new NotImplementedException();
+        }
+
+        private static ResponseInfo ExecuteCommand(ICommand command)
+        {
+            var client = new BankingServiceClient();
+            try
+            {
+                command.Execute(client);
+                client.Close();
+                return new ResponseInfo(true, "Success!");
+            }
+            catch (FaultException exception)
+            {
+                client.Close();
+                return new ResponseInfo(false, exception.Message);
+            }
         }
 
         public void LogOut()
