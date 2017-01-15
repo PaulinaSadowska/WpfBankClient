@@ -31,10 +31,10 @@ namespace WpfBankClient.Pages
             switch (_operationType)
             {
                 case OperationType.Deposit:
-                    _paymentListener.Deposit(paymentInfo);
+                    _paymentListener.DepositAsync(paymentInfo);
                     break;
                 case OperationType.Withdraw:
-                    _paymentListener.Withdraw(paymentInfo);
+                    _paymentListener.WithdrawAsync(paymentInfo);
                     break;
             }
         }

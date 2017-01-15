@@ -4,6 +4,7 @@ using WpfBankClient.service;
 using WpfBankClient.Window.Listeners;
 using WpfBankClient.Pages;
 using System;
+using System.Threading.Tasks;
 using WpfBankClient.service.RequestData;
 
 namespace WpfBankClient
@@ -58,10 +59,12 @@ namespace WpfBankClient
             NavigateTo(new TransferPage(this));
         }
 
-        public void LogIn(string login, string password)
+        public async Task LogInAsync(string login, string password)
         {
-            var response = _bankingService.LogIn(login, password);
-            MessageBox.Show(response.Message);
+            StartLoading();
+            var response = await Task.Run(()=>_bankingService.LogIn(login, password));
+            LoadingPanel.Visibility = Visibility.Hidden;
+            ShowErrorMessage(response.Succeeded, response.Message);
             if (response.Succeeded)
             {
                 ShowLoggedInMenuItems();
@@ -73,32 +76,54 @@ namespace WpfBankClient
             }
         }
 
-        public void Deposit(PaymentInfo paymentInfo)
+        public async Task DepositAsync(PaymentInfo paymentInfo)
         {
-            var response = _bankingService.Deposit(paymentInfo);
-            MessageBox.Show(response.Message);
+            StartLoading();
+            var response = await Task.Run(() => _bankingService.Deposit(paymentInfo));
+            ShowResponseMessage(response.Message);
         }
 
-        public void Withdraw(PaymentInfo paymentInfo)
+        public async Task WithdrawAsync(PaymentInfo paymentInfo)
         {
-            var response = _bankingService.Withdraw(paymentInfo);
-            MessageBox.Show(response.Message);
+            StartLoading();
+            var response = await Task.Run(() => _bankingService.Withdraw(paymentInfo));
+            ShowResponseMessage(response.Message);
         }
 
-        public void Transfer(TransferInfo transferInfo)
+        public async Task TransferAsync(TransferInfo transferInfo)
         {
-            var response = _bankingService.Transfer(transferInfo);
-            MessageBox.Show(response.Message);
+            StartLoading();
+            var response = await Task.Run(() => _bankingService.Transfer(transferInfo));
+            ShowResponseMessage(response.Message);
         }
 
-        public void GetOperationHistory(string accountNumber)
+        public async Task GetOperationHistoryAsync(string accountNumber)
         {
-            var response = _bankingService.OperationHistory(accountNumber);
-            MessageBox.Show(response.Message);
+            StartLoading();
+            var response = await Task.Run(() => _bankingService.OperationHistory(accountNumber));
+            ShowErrorMessage(response.Succeeded, response.Message);
             if (response.Succeeded)
             {
                 NavigateTo(new HistoryPage(accountNumber, response.OperationHistory));
             }
+        }
+
+        private void StartLoading()
+        {
+            LoadingPanel.Visibility = Visibility.Visible;
+        }
+
+        private void ShowErrorMessage(bool succeeded, string message)
+        {
+            LoadingPanel.Visibility = Visibility.Collapsed;
+            if(!succeeded)
+                MessageBox.Show(message);
+        }
+
+        private void ShowResponseMessage(string message)
+        {
+            LoadingPanel.Visibility = Visibility.Collapsed;
+            MessageBox.Show(message);
         }
 
         private void ShowLoggedInMenuItems()

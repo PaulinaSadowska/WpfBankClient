@@ -31,7 +31,7 @@ namespace WpfBankClient.Pages
 
         private void PerformButton_Click(object sender, RoutedEventArgs e)
         {
-            _transferListener.Transfer(new TransferInfo
+            _transferListener.TransferAsync(new TransferInfo
             {
                 Amount = AmountTextBox.Text, 
                 SenderAccountNumber = SenderAccountTextBox.Text,

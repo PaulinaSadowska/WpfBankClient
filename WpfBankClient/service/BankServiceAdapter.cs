@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ServiceModel;
+﻿using System.ServiceModel;
 using WpfBankClient.BankingService;
 using WpfBankClient.service.Commands;
 using WpfBankClient.service.RequestData;

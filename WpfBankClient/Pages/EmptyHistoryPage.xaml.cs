@@ -16,7 +16,7 @@ namespace WpfBankClient.Pages
 
         private void GetHistoryButton_Click(object sender, RoutedEventArgs e)
         {
-            _historyListener.GetOperationHistory(AccountTextBox.Text);
+            _historyListener.GetOperationHistoryAsync(AccountTextBox.Text);
         }
     }
 }

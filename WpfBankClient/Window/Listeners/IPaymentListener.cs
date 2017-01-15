@@ -1,10 +1,11 @@
-﻿using WpfBankClient.service.RequestData;
+﻿using System.Threading.Tasks;
+using WpfBankClient.service.RequestData;
 
 namespace WpfBankClient.Window.Listeners
 {
     public interface IPaymentListener
     {
-        void Deposit(PaymentInfo paymentInfo);
-        void Withdraw(PaymentInfo paymentInfo);
+        Task DepositAsync(PaymentInfo paymentInfo);
+        Task WithdrawAsync(PaymentInfo paymentInfo);
     }
 }

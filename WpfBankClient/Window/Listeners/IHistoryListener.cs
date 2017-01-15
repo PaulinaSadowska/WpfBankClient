@@ -1,7 +1,9 @@
-﻿namespace WpfBankClient.Window.Listeners
+﻿using System.Threading.Tasks;
+
+namespace WpfBankClient.Window.Listeners
 {
     public interface IHistoryListener
     {
-        void GetOperationHistory(string accountNumber);
+        Task GetOperationHistoryAsync(string accountNumber);
     }
 }

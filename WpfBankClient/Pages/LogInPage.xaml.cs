@@ -22,7 +22,7 @@ namespace WpfBankClient.Pages
 
         private void LogInButton_OnClick(object sender, RoutedEventArgs e)
         {
-            _logInListener.LogIn(LoginTextBox.Text, PasswordBox.Password);
+            _logInListener.LogInAsync(LoginTextBox.Text, PasswordBox.Password);
         }
     }
 }

@@ -8,7 +8,6 @@
         WindowStartupLocation="CenterScreen">
 
 
-
     <DockPanel>
         <Menu DockPanel.Dock="Left" HorizontalAlignment="Left" Background="#009688" Width="140">
             <Menu.ItemsPanel>
@@ -24,7 +23,20 @@
             <MenuItem Name="LogOutMenuItem" Header="_Log out" Click="MenuItemLogOut_OnClick" />
         </Menu>
         <Grid>
-            <Frame Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,45,0,0" />
+            <Grid>
+                <Frame Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,45,0,0" />
+            </Grid>
+
+            <Grid Background="#44212121" Name ="LoadingPanel" Panel.ZIndex="1000" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                <Label Grid.Row ="0" Grid.Column="0" Content="Loading..." VerticalAlignment="Center" Background ="#00796B" Padding="30, 15, 30, 15" FontSize="20" Foreground="White" />
+            </Grid>
         </Grid>
     </DockPanel>
 </Window>

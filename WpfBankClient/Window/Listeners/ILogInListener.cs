@@ -1,7 +1,9 @@
-﻿namespace WpfBankClient.Window.Listeners
+﻿using System.Threading.Tasks;
+
+namespace WpfBankClient.Window.Listeners
 {
     public interface ILogInListener
     {
-        void LogIn(string login, string password);
+        Task LogInAsync(string login, string password);
     }
 }
