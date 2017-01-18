@@ -71,14 +71,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service\BankServiceAdapter.cs" />
+    <Compile Include="Service\BankServiceProxy.cs" />
     <Compile Include="Service\Commands\DepositCommand.cs" />
     <Compile Include="Service\Commands\ICommand.cs" />
     <Compile Include="Service\Commands\LogInCommand.cs" />
     <Compile Include="Service\Commands\HistoryCommand.cs" />
     <Compile Include="Service\Commands\TransferCommand.cs" />
     <Compile Include="Service\Commands\WithdrawCommand.cs" />
-    <Compile Include="Service\IServiceAdapter.cs" />
+    <Compile Include="Service\IServiceProxy.cs" />
     <Compile Include="Service\RequestData\PaymentInfo.cs" />
     <Compile Include="Service\RequestData\TransferInfo.cs" />
     <Compile Include="Service\Responses\HistoryRecord.cs" />
@@ -172,6 +172,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\BankingService\BankingService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\BankingService\BankingService5.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\BankingService\WpfBankClient.BankingService.LogInResponse.datasource">

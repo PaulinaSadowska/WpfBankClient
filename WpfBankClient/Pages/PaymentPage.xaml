@@ -19,7 +19,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Label Grid.Row="0" x:Name="AccountLabel" Content="Account number:" />
-        <TextBox Grid.Row="1" x:Name="AccountTextBox" />
+        <ComboBox Grid.Row="1" x:Name="AccountComboBox" ItemsSource="{Binding}"/>
         <Label Grid.Row="2" x:Name="AmountLabel" Content="Amount" />
         <TextBox Grid.Row="3" x:Name="AmountTextBox" />
         <Label Grid.Row="4" x:Name="TitleLabel" Content="Title" />

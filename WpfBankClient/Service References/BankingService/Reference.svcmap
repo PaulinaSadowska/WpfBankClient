@@ -22,6 +22,7 @@
     <MetadataSource Address="http://localhost/Bank/Service/Soap/BankingService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="BankingService5.xsd" MetadataType="Schema" ID="11d23efe-b7b8-4e51-ab62-21d0ea905e33" SourceId="1" SourceUrl="http://localhost/Bank/Service/Soap/BankingService.svc?xsd=xsd5" />
     <MetadataFile FileName="BankingService.disco" MetadataType="Disco" ID="db93247e-f483-46b1-8668-c48452142216" SourceId="1" SourceUrl="http://localhost/Bank/Service/Soap/BankingService.svc?disco" />
     <MetadataFile FileName="BankingService.xsd" MetadataType="Schema" ID="6240c24c-e7f9-44f9-9de2-f672a48461f2" SourceId="1" SourceUrl="http://localhost/Bank/Service/Soap/BankingService.svc?xsd=xsd1" />
     <MetadataFile FileName="BankingService1.xsd" MetadataType="Schema" ID="86669a4b-dea4-4199-8514-f813f7fe389d" SourceId="1" SourceUrl="http://localhost/Bank/Service/Soap/BankingService.svc?xsd=xsd0" />

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using WpfBankClient.Window.Listeners;
 
@@ -8,15 +9,16 @@ namespace WpfBankClient.Pages
     {
         private readonly IHistoryListener _historyListener;
 
-        public EmptyHistoryPage(IHistoryListener historyListener)
+        public EmptyHistoryPage(IHistoryListener historyListener, IEnumerable<string> accountNumbers)
         {
             InitializeComponent();
             _historyListener = historyListener;
+            AccountComboBox.ItemsSource = accountNumbers;
         }
 
         private void GetHistoryButton_Click(object sender, RoutedEventArgs e)
         {
-            _historyListener.GetOperationHistoryAsync(AccountTextBox.Text);
+            _historyListener.GetOperationHistoryAsync(AccountComboBox.Text);
         }
     }
 }

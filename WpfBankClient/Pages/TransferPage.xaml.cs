@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfBankClient.service.RequestData;
 using WpfBankClient.Window.Listeners;
 
@@ -23,10 +12,11 @@ namespace WpfBankClient.Pages
     public partial class TransferPage : Page
     {
         private readonly ITransferListener _transferListener;
-        public TransferPage(ITransferListener transferListener)
+        public TransferPage(ITransferListener transferListener, IEnumerable<string> accountNumbers)
         {
             InitializeComponent();
             _transferListener = transferListener;
+            SenderAccountComboBox.ItemsSource = accountNumbers;
         }
 
         private void PerformButton_Click(object sender, RoutedEventArgs e)
@@ -34,7 +24,7 @@ namespace WpfBankClient.Pages
             _transferListener.TransferAsync(new TransferInfo
             {
                 Amount = AmountTextBox.Text, 
-                SenderAccountNumber = SenderAccountTextBox.Text,
+                SenderAccountNumber = SenderAccountComboBox.Text,
                 ReceiverAccountNumber = ReceiverAccountTextBox.Text,
                 OperationTitle = OperationTitleTextBox.Text
             });

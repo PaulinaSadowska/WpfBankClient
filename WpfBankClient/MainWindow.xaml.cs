@@ -3,7 +3,6 @@ using System.Windows.Controls;
 using WpfBankClient.service;
 using WpfBankClient.Window.Listeners;
 using WpfBankClient.Pages;
-using System;
 using System.Threading.Tasks;
 using WpfBankClient.service.RequestData;
 
@@ -11,12 +10,12 @@ namespace WpfBankClient
 {
     public partial class MainWindow : System.Windows.Window, ILogInListener, IPaymentListener, ITransferListener, IHistoryListener
     {
-        private readonly IServiceAdapter _bankingService;
+        private readonly IServiceProxy _bankingService;
 
         public MainWindow()
         {
             InitializeComponent();
-            _bankingService = new BankServiceAdapter();
+            _bankingService = new BankServiceProxy();
             NavigateTo(new LogInPage(this));
             HideLoggedInMenuItems();
         }
@@ -28,7 +27,7 @@ namespace WpfBankClient
 
         private void MenuItemDeposit_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigateTo(new PaymentPage(this, OperationType.Deposit));
+            NavigateTo(new PaymentPage(this, OperationType.Deposit, _bankingService.GetAccountNumbers()));
         }
 
 
@@ -39,7 +38,7 @@ namespace WpfBankClient
 
         private void MenuItemWithdraw_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigateTo(new PaymentPage(this, OperationType.Withdraw));
+            NavigateTo(new PaymentPage(this, OperationType.Withdraw, _bankingService.GetAccountNumbers()));
         }
 
         private void MenuItemLogOut_OnClick(object sender, RoutedEventArgs e)
@@ -51,12 +50,12 @@ namespace WpfBankClient
 
         private void MenuItemHistory_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigateTo(new EmptyHistoryPage(this));
+            NavigateTo(new EmptyHistoryPage(this, _bankingService.GetAccountNumbers()));
         }
 
         private void MenuItemTransfer_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigateTo(new TransferPage(this));
+            NavigateTo(new TransferPage(this, _bankingService.GetAccountNumbers()));
         }
 
         public async Task LogInAsync(string login, string password)
@@ -68,7 +67,7 @@ namespace WpfBankClient
             if (response.Succeeded)
             {
                 ShowLoggedInMenuItems();
-                NavigateTo(new PaymentPage(this, OperationType.Deposit));
+                NavigateTo(new PaymentPage(this, OperationType.Deposit, _bankingService.GetAccountNumbers()));
             }
             else
             {

@@ -24,7 +24,7 @@
         <Label Grid.Row ="2" x:Name="ReceiverAccountLabel" Content="Receiver account number:" />
         <Label Grid.Row ="4" x:Name="AmountLabel" Content="Amount" />
         <Label Grid.Row ="6" x:Name="TitleLabel" Content="Title" />
-        <TextBox Grid.Row ="1" x:Name="SenderAccountTextBox" />
+        <ComboBox Grid.Row ="1" x:Name="SenderAccountComboBox" ItemsSource="{Binding}" />
         <TextBox Grid.Row ="3" x:Name="ReceiverAccountTextBox" />
         <TextBox Grid.Row ="5" x:Name="AmountTextBox" />
         <TextBox Grid.Row ="7" x:Name="OperationTitleTextBox" />

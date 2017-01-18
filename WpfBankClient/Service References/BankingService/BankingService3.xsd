@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WcfBankingService.Service.DataContract.Response" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfBankingService.Service.DataContract.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/Bank/Service/Soap/BankingService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import schemaLocation="http://localhost/Bank/Service/Soap/BankingService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import schemaLocation="http://localhost/Bank/Service/Soap/BankingService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/WcfBankingService.operation" />
+  <xs:import schemaLocation="http://localhost/Bank/Service/Soap/BankingService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/WcfBankingService.operation" />
   <xs:complexType name="LogInResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="AccessToken" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AccountNumbers" nillable="true" type="q1:ArrayOfstring" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="LogInResponse" nillable="true" type="tns:LogInResponse" />
@@ -78,7 +80,7 @@
   <xs:element name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
   <xs:complexType name="OperationHistoryResponse">
     <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfBankingService.operation" minOccurs="0" name="OperationRecords" nillable="true" type="q1:ArrayOfOperationRecord" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfBankingService.operation" minOccurs="0" name="OperationRecords" nillable="true" type="q2:ArrayOfOperationRecord" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OperationHistoryResponse" nillable="true" type="tns:OperationHistoryResponse" />

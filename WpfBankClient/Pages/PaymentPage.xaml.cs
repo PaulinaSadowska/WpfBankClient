@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Collections.Generic;
+using System.Windows.Controls;
 using WpfBankClient.service.RequestData;
 using WpfBankClient.Window.Listeners;
 
@@ -12,12 +13,13 @@ namespace WpfBankClient.Pages
         private readonly OperationType _operationType;
         private readonly IPaymentListener _paymentListener;
 
-        public PaymentPage(IPaymentListener paymentListener, OperationType operationType)
+        public PaymentPage(IPaymentListener paymentListener, OperationType operationType, IEnumerable<string> accountNumbers )
         {
             InitializeComponent();
             _operationType = operationType;
             _paymentListener = paymentListener;
             PerformButton.Content = _operationType == OperationType.Deposit ? "Deposit" : "Withdraw";
+            AccountComboBox.ItemsSource = accountNumbers;
         }
 
         private void PerformButton_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -25,7 +27,7 @@ namespace WpfBankClient.Pages
             var paymentInfo = new PaymentInfo
             {
                 Amount = AmountTextBox.Text,
-                SenderAccountNumber = AccountTextBox.Text,
+                SenderAccountNumber = AccountComboBox.Text,
                 OperationTitle = OperationTitleTextBox.Text
             };
             switch (_operationType)

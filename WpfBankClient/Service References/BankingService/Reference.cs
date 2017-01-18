@@ -26,6 +26,9 @@ namespace WpfBankClient.BankingService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AccessTokenField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] AccountNumbersField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -45,6 +48,19 @@ namespace WpfBankClient.BankingService {
                 if ((object.ReferenceEquals(this.AccessTokenField, value) != true)) {
                     this.AccessTokenField = value;
                     this.RaisePropertyChanged("AccessToken");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] AccountNumbers {
+            get {
+                return this.AccountNumbersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AccountNumbersField, value) != true)) {
+                    this.AccountNumbersField = value;
+                    this.RaisePropertyChanged("AccountNumbers");
                 }
             }
         }

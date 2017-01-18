@@ -10,7 +10,7 @@
     <Grid VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Label Grid.Row="0" x:Name="AccountLabel" Content="History of Account: " />
         <DataGrid Grid.Row="1" x:Name="HistoryDataGrid" Width="Auto" ItemsSource="{Binding}" />

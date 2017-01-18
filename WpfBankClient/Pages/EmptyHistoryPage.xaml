@@ -15,7 +15,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Label  Grid.Row="0" x:Name="AccountLabel" Content="Account number:"  />
-        <TextBox  Grid.Row="1" x:Name="AccountTextBox" />
+        <ComboBox  Grid.Row="1" x:Name="AccountComboBox" ItemsSource="{Binding}"/>
         <Button  Grid.Row="2" x:Name="GetHistoryButton" Content="Get History"  Click="GetHistoryButton_Click" />
 
     </Grid>
