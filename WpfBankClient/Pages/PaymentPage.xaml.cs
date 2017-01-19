@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Controls;
+using WpfBankClient.EventListeners;
 using WpfBankClient.service.RequestData;
-using WpfBankClient.Window.Listeners;
 
 namespace WpfBankClient.Pages
 {

@@ -84,9 +84,9 @@
     <Compile Include="Service\Responses\HistoryRecord.cs" />
     <Compile Include="Service\Responses\HistoryResponseInfo.cs" />
     <Compile Include="Service\Responses\ResponseInfo.cs" />
-    <Compile Include="Window\Listeners\IHistoryListener.cs" />
-    <Compile Include="Window\Listeners\IPaymentListener.cs" />
-    <Compile Include="Window\Listeners\ITransferListener.cs" />
+    <Compile Include="EventListeners\IHistoryListener.cs" />
+    <Compile Include="EventListeners\IPaymentListener.cs" />
+    <Compile Include="EventListeners\ITransferListener.cs" />
     <Page Include="Pages\EmptyHistoryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -125,7 +125,7 @@
     <Compile Include="Pages\LogInPage.xaml.cs">
       <DependentUpon>LogInPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window\Listeners\ILogInListener.cs" />
+    <Compile Include="EventListeners\ILogInListener.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
